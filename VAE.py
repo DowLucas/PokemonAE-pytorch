@@ -71,7 +71,8 @@ class VAE(nn.Module):
         self.fc3 = nn.Linear(LATENT_DIM, 256)
         self.fc4 = nn.Linear(256, 512)
         self.fc5 = nn.Linear(512, IMG_SIZE**2*3)
-        
+
+
     def conv(self, x):
         x = F.relu(self.conv1(x))
         x = self.maxpool1(x)
@@ -79,7 +80,7 @@ class VAE(nn.Module):
         x = self.maxpool1(x)
 
         self._to_linear = x.shape[1]*x.shape[2]*x.shape[3]
-        assert self._to_linear == self.linear, f"New linear input should be set to {self._to_linear}"
+        assert self._to_linear == self.linear, f"Please set self.linear to {self._to_linear}"
 
         x = x.view(-1, self.linear)
 
@@ -293,7 +294,7 @@ def random_pokemon(modelname):
 
 
 # Run this if you want to train the VAE
-#train()
+train()
 
 # Run this is you want to view a 3D plot of the 3D latent dim
 #show_pokemon_image("1578837142_latentdim-2.pt", "conkeldurr")
