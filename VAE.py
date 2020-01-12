@@ -280,6 +280,7 @@ def make_2d_dimensionallity_space(modelname):
 def random_pokemon(modelname):
     vae = VAE()
     vae.load_state_dict(torch.load(f"models/{modelname}"))
+    print()
 
     fig = plt.figure(2)
     ax = fig.gca()
