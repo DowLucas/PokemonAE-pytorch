@@ -281,6 +281,7 @@ def random_pokemon(modelname):
     vae = VAE()
     vae.load_state_dict(torch.load(f"models/{modelname}"))
     print()
+    print()
 
     fig = plt.figure(2)
     ax = fig.gca()
